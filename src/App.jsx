@@ -140,7 +140,7 @@ export default function ArizqaPortfolio() {
     <div className="bg-black text-white min-h-screen overflow-x-hidden">
       {/* Custom Cursor Follower */}
       <div 
-        className="fixed w-6 h-6 bg-pink-500 rounded-full pointer-events-none z-50 mix-blend-screen transition-transform duration-300 ease-out"
+        className="hidden md:block fixed w-6 h-6 bg-pink-500 rounded-full pointer-events-none z-50 mix-blend-screen transition-transform duration-300 ease-out"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
@@ -152,7 +152,7 @@ export default function ArizqaPortfolio() {
       {/* Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-lg shadow-lg shadow-pink-500/10' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 md:h-20">
             <div className="text-2xl font-bold">
               <span className="text-white">Arizqa</span>
               <span className="text-pink-500"> Novi</span>
@@ -217,7 +217,7 @@ export default function ArizqaPortfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-20">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 left-10 w-72 h-72 bg-pink-500 rounded-full filter blur-3xl animate-pulse"></div>
@@ -231,7 +231,7 @@ export default function ArizqaPortfolio() {
               ✨ Kreator Konten & Digital Marketer
             </div>
             
-            <h1 className="text-5xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               Hello! <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent animate-gradient"> Arizqa </span>Novi Ramadhani here
             </h1>
             
@@ -239,19 +239,19 @@ export default function ArizqaPortfolio() {
               Ramadhani here
             </h2> */}
             
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            <p className="text-base sm:text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed break-words animate-fade-in-up" style={{animationDelay: '0.6s'}}>
               Arizqa is a versatile digital branding associate with language expertise. Novi has experience in content creation since 2022. She is currently certified as competent in Digital Marketing with copywriting skills. Leadership and skilled interpersonal communication make her dynamic toward the developments in the creative industry, education, and social fields.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
               <a href="#portfolio">
-                <button className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
+                <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
                   Portfolio
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </a>
               <a href="#contact">
-                <button className="px-8 py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
+                <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
                   Download Cv
                 </button>
               </a>
@@ -282,7 +282,7 @@ export default function ArizqaPortfolio() {
       {/* Stats Section removed per request */}
 
       {/* About Section */}
-      <section id="about" className="py-32 bg-gradient-to-b from-black to-gray-900 animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+      <section id="about" className="py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-16 items-center">
             <div className="space-y-6 animate-slide-in-left">
@@ -353,7 +353,7 @@ export default function ArizqaPortfolio() {
       </section> */}
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-32 bg-gradient-to-b from-gray-900 to-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+      <section id="portfolio" className="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold animate-fade-in-up">
@@ -385,7 +385,7 @@ export default function ArizqaPortfolio() {
           </div>
 
           {/* Portfolio Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredPortfolio.map((item, index) => (
               <div 
                 key={index}
@@ -428,7 +428,7 @@ export default function ArizqaPortfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 bg-gradient-to-b from-black to-gray-900 animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+      <section id="skills" className="py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             <h3 className="text-3xl md:text-4xl font-bold text-pink-500 mb-8 text-center">Keahlian Saya</h3>
@@ -456,7 +456,7 @@ export default function ArizqaPortfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 bg-gradient-to-br from-pink-600 via-rose-600 to-fuchsia-600 relative overflow-hidden animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+      <section id="contact" className="py-24 md:py-32 bg-gradient-to-br from-pink-600 via-rose-600 to-fuchsia-600 relative overflow-hidden animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-float"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-float" style={{animationDelay: '1s'}}></div>

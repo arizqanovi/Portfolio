@@ -87,29 +87,29 @@ export default function ContentWriting() {
     <div className="bg-black text-white min-h-screen">
       <header className="py-6 border-b border-pink-500/20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold">Content Writing</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">Content Writing</h1>
           <a href="#/" className="inline-flex items-center text-pink-500 hover:text-pink-400 font-semibold">
             <ArrowLeft className="mr-2 w-4 h-4" /> Kembali ke Beranda
           </a>
         </div>
       </header>
 
-      <main className="py-16">
+      <main className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               Artikel <span className="text-pink-500">Pilihan</span>
             </h2>
             <p className="text-gray-400 mt-3">Beberapa artikel yang relevan dengan konten tulisan.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {articles.map((a, idx) => (
               <div key={idx} className="group bg-gradient-to-br from-gray-900 to-black border border-pink-500/20 rounded-2xl overflow-hidden hover:border-pink-500 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-500 hover:-translate-y-2">
                 <div className="p-6 space-y-3">
                   <div className="text-sm text-pink-500 font-semibold">{a.source}</div>
-                  <h3 className="text-xl font-bold group-hover:text-pink-500 transition-colors duration-300">{a.title}</h3>
-                  <p className="text-gray-400">{a.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold group-hover:text-pink-500 transition-colors duration-300 break-words">{a.title}</h3>
+                  <p className="text-gray-400 break-words">{a.description}</p>
                   <a
                     href={a.url}
                     target="_blank"

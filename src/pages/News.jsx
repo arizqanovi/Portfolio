@@ -1162,22 +1162,22 @@ export default function News() {
         </div>
       </header>
 
-      <main className="py-16">
+      <main className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               Kumpulan <span className="text-pink-500">Berita</span>
             </h2>
             <p className="text-gray-400 mt-3">Berita terkini seputar Jawa Timur dan nasional.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {paginatedNews.map((news, index) => (
               <div key={index} className="group bg-gradient-to-br from-gray-900 to-black border border-pink-500/20 rounded-2xl overflow-hidden hover:border-pink-500 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-500 hover:-translate-y-2">
                 <div className="p-6 space-y-3">
                   <div className="text-sm text-pink-500 font-semibold">{news.source}</div>
-                  <h3 className="text-xl font-bold group-hover:text-pink-500 transition-colors duration-300">{news.title}</h3>
-                  <p className="text-gray-400">{news.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold group-hover:text-pink-500 transition-colors duration-300 break-words">{news.title}</h3>
+                  <p className="text-gray-400 break-words">{news.description}</p>
                   <a
                     href={news.url}
                     target="_blank"

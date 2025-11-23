@@ -8,6 +8,14 @@ export default function ArizqaPortfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
 
+  // Helper to scroll to section IDs without modifying the router hash
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -78,7 +86,8 @@ export default function ArizqaPortfolio() {
       description: "Report, Editorial, and Community Spotlight",
       type: "Book",
       gradient: "from-fuchsia-600 to-pink-600",
-      icon: <Edit3 className="w-12 h-12" />
+      icon: <Edit3 className="w-12 h-12" />,
+      link: "#/news"
     },
     {
       category: "spoken",
@@ -151,22 +160,25 @@ export default function ArizqaPortfolio() {
             
             <div className="hidden md:flex space-x-8">
               {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
-                <a 
+                <button
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  type="button"
+                  onClick={() => scrollToSection(item.toLowerCase())}
                   className="text-gray-300 hover:text-pink-500 transition-colors duration-300 font-medium"
                 >
                   {item}
-                </a>
+                </button>
               ))}
             </div>
 
             <div className="hidden md:block">
-              <a href="#contact">
-                <button className="px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-medium">
-                  Let's Work Together
-                </button>
-              </a>
+              <button
+                type="button"
+                onClick={() => scrollToSection('contact')}
+                className="px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-medium"
+              >
+                Let's Work Together
+              </button>
             </div>
 
             <button 
@@ -183,20 +195,22 @@ export default function ArizqaPortfolio() {
           <div className="md:hidden bg-black/98 backdrop-blur-lg border-t border-pink-500/20">
             <div className="px-4 py-6 space-y-4">
               {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
-                <a 
+                <button
                   key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block text-gray-300 hover:text-pink-500 transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  type="button"
+                  className="block text-gray-300 hover:text-pink-500 transition-colors font-medium py-2 text-left w-full"
+                  onClick={() => { setIsMenuOpen(false); scrollToSection(item.toLowerCase()); }}
                 >
                   {item}
-                </a>
-              ))}
-              <a href="#contact">
-                <button className="w-full px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-medium mt-4">
-                  Let's Work Together
                 </button>
-              </a>
+              ))}
+              <button
+                type="button"
+                onClick={() => { setIsMenuOpen(false); scrollToSection('contact'); }}
+                className="w-full px-6 py-3 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 font-medium mt-4"
+              >
+                Let's Work Together
+              </button>
             </div>
           </div>
         )}
@@ -238,7 +252,7 @@ export default function ArizqaPortfolio() {
               </a>
               <a href="#contact">
                 <button className="px-8 py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
-                  Contact Me
+                  Download Cv
                 </button>
               </a>
             </div>
@@ -273,7 +287,7 @@ export default function ArizqaPortfolio() {
           <div className="grid gap-16 items-center">
             <div className="space-y-6 animate-slide-in-left">
               <h2 className="text-4xl md:text-5xl font-bold">
-                Tentang <span className="text-pink-500">Saya</span>
+                About <span className="text-pink-500">Me</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">
                 Saya adalah seorang content writer, editor, dan digital marketer yang passionate dalam menciptakan konten yang meaningful dan impactful. Dengan pengalaman bertahun-tahun di industri digital, saya telah membantu berbagai brand dan bisnis untuk mengembangkan presence online mereka.
@@ -281,13 +295,13 @@ export default function ArizqaPortfolio() {
               <p className="text-gray-400 text-lg leading-relaxed">
                 Keahlian saya meliputi content creation, SEO optimization, copywriting, content strategy, dan social media marketing. Saya percaya bahwa konten yang baik tidak hanya informatif, tetapi juga mampu menginspirasi dan menggerakkan audiens.
               </p>
-              <div className="pt-6">
+              {/* <div className="pt-6">
                 <a href="#contact">
                   <button className="px-8 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-xl hover:shadow-pink-500/50 transition-all duration-300 font-bold hover:scale-105 active:scale-95">
                     Unduh CV
                   </button>
                 </a>
-              </div>
+              </div> */}
             </div>
 
             {/* Keahlian Saya dipindahkan ke section baru tepat di atas Contact */}
@@ -296,7 +310,7 @@ export default function ArizqaPortfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 bg-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+      {/* <section id="services" className="py-32 bg-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold animate-fade-in-up">
@@ -336,7 +350,7 @@ export default function ArizqaPortfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-32 bg-gradient-to-b from-gray-900 to-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">

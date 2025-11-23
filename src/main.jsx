@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import ContentWriting from './pages/ContentWriting.jsx'
+import News from './pages/News.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/content-writing" element={<ContentWriting />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>,

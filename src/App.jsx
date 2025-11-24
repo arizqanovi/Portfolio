@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Pen, Edit3, TrendingUp, Instagram, Linkedin, Mail, Github, Star, Award, Users, Briefcase, ChevronDown, ExternalLink, FileText, Video, Image } from 'lucide-react';
+import { Menu, X, ArrowRight, Pen, Edit3, TrendingUp, Instagram, Linkedin, Mail, Github, Star, Award, Users, Briefcase, ChevronDown, ExternalLink, FileText, Video, Image, MessageCircle } from 'lucide-react';
 
 export default function ArizqaPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -75,7 +75,7 @@ export default function ArizqaPortfolio() {
       category: "written",
       title: "Content Writing",
       description: "Produk review, recomendation, evergreen articles",
-      type: "Article",
+      // type: "Article",
       gradient: "from-pink-600 to-rose-600",
       icon: <FileText className="w-12 h-12" />,
       link: "#/content-writing"
@@ -84,7 +84,7 @@ export default function ArizqaPortfolio() {
       category: "written",
       title: "News",
       description: "Report, Editorial, and Community Spotlight",
-      type: "Book",
+      // type: "Book",
       gradient: "from-fuchsia-600 to-pink-600",
       icon: <Edit3 className="w-12 h-12" />,
       link: "#/news"
@@ -92,34 +92,37 @@ export default function ArizqaPortfolio() {
     {
       category: "spoken",
       title: "Language Tutor ",
-      description: "Kampanye media sosial yang meningkatkan engagement 300%",
-      type: "Campaign",
+      description: "Indonesian and English language learning guide",
+      // type: "Campaign",
       gradient: "from-rose-600 to-pink-700",
-      icon: <TrendingUp className="w-12 h-12" />
+      icon: <TrendingUp className="w-12 h-12" />,
+      link: "#/language-tutor"
     },
     {
       category: "written",
       title: "Centent Editing",
       description: "Strategic SEO and keyword optimization",
-      type: "Strategy",
+      // type: "Strategy",
       gradient: "from-pink-500 to-fuchsia-500",
-      icon: <FileText className="w-12 h-12" />
+      icon: <FileText className="w-12 h-12" />,
+      link: "#/content-editing"
     },
     {
       category: "written",
       title: "Proofreading & Translation",
       description: "Grammar and linguistic refinement",
-      type: "Video",
+      // type: "Video",
       gradient: "from-rose-500 to-pink-600",
       icon: <Video className="w-12 h-12" />
     },
     {
       category: "spoken",
       title: "Speaker and MC",
-      description: "Perencanaan konten brand untuk meningkatkan brand awareness",
-      type: "Planning",
+      description: "Persuasive rhetoric communication",
+      // type: "Planning",
       gradient: "from-fuchsia-600 to-rose-600",
-      icon: <Image className="w-12 h-12" />
+      icon: <Image className="w-12 h-12" />,
+      link: "#/speaker-mc"
     }
   ];
 
@@ -244,15 +247,16 @@ export default function ArizqaPortfolio() {
             </p>
 
             <div className="flex flex-col items-center sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+              
+              <a href="#contact">
+                <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
+                  Download Cv
+                </button>
+              </a>
               <a href="#portfolio">
                 <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
                   Portfolio
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </a>
-              <a href="#contact">
-                <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
-                  Download Cv
                 </button>
               </a>
             </div>
@@ -463,12 +467,12 @@ export default function ArizqaPortfolio() {
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent">Course and Certifications</span>
+                <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent">Training and Certifications</span>
               </h3>
 
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              {/* <p className="text-gray-400 max-w-2xl mx-auto">
                 Kumpulan sertifikat pelatihan dan kursus yang relevan dengan content writing, marketing, dan tools pendukung.
-              </p>
+              </p> */}
 
               <div className="pt-2">
                 <a href="https://drive.google.com/drive/folders/1sYwTGHp2-njtcNhMiQ-Dxm667ErBk9iu?usp=sharing" target="_blank" rel="noopener noreferrer">
@@ -494,17 +498,12 @@ export default function ArizqaPortfolio() {
           <h2 className="text-4xl md:text-5xl font-bold text-white animate-fade-in-up">
              Let's collab and create something impactful
           </h2>
-          <p className="text-xl text-pink-100 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          {/* <p className="text-xl text-pink-100 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             Siap untuk mengembangkan konten yang menarik dan strategi pemasaran digital yang efektif? Mari diskusikan proyek Anda!
-          </p>
+          </p> */}
           
           <div className="flex flex-col items-center sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-            <a href="mailto:ramadhaninovi98@gmail.com">
-              <button className="group px-10 py-5 bg-white text-pink-600 rounded-lg hover:bg-pink-50 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl hover:scale-105 hover:-translate-y-1 active:scale-95">
-                Kirim Email
-                <Mail className="ml-2 group-hover:rotate-12 transition-transform" />
-              </button>
-            </a>
+            
             {/* <a href="https://wa.me/62123456789" target="_blank" rel="noopener noreferrer">
               <button className="px-10 py-5 border-2 border-white text-white rounded-lg hover:bg-white/10 transition-all duration-300 font-bold text-lg hover:scale-105 hover:-translate-y-1 active:scale-95">
                 WhatsApp Saya
@@ -512,9 +511,23 @@ export default function ArizqaPortfolio() {
             </a> */}
           </div>
 
-          <div className="flex justify-center gap-6 pt-8 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+          <div className="pt-6 text-pink-50 text-lg font-semibold animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            Contact Me
+          </div>
+
+          <div className="flex justify-center gap-6 pt-4 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
             <a href="https://www.instagram.com/ramadhanirizqaa/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <Instagram size={24} />
+            </a>
+            <a href="https://wa.me/6285812115605" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                className="w-6 h-6 fill-current"
+                aria-hidden="true"
+              >
+                <path d="M16 3C9.373 3 4 8.373 4 15c0 2.115.553 4.067 1.607 5.8L4 29l8.39-1.57C13.99 28.45 14.986 28.7 16 28.7 22.627 28.7 28 23.327 28 16.7 28 10.073 22.627 4.7 16 4.7zm0 2.6c5.01 0 9.1 4.09 9.1 9.1 0 5.01-4.09 9.1-9.1 9.1-.84 0-1.665-.12-2.455-.357l-.44-.13-4.96.93.95-4.84-.145-.25C8.36 20 7.9 18.38 7.9 16.7 7.9 9.99 11.99 5.6 16 5.6zm-4.03 4.4c-.22 0-.565.08-.86.4-.295.32-1.13 1.104-1.13 2.69 0 1.585 1.16 3.118 1.32 3.335.16.217 2.23 3.55 5.52 4.834 2.73 1.08 3.29.866 3.88.81.59-.056 1.91-.78 2.18-1.533.27-.753.27-1.398.19-1.533-.08-.135-.295-.215-.62-.377-.325-.162-1.92-.947-2.22-1.055-.295-.108-.51-.162-.72.163-.21.325-.825 1.055-1.01 1.27-.186.217-.37.244-.695.082-.325-.162-1.37-.505-2.61-1.61-.966-.86-1.62-1.92-1.81-2.245-.19-.325-.02-.5.143-.662.147-.147.325-.383.487-.575.162-.19.216-.325.325-.54.108-.216.054-.406-.027-.568-.08-.162-.72-1.77-.985-2.42-.24-.6-.49-.62-.71-.63z" />
+              </svg>
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <Linkedin size={24} />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Pen, Edit3, TrendingUp, Instagram, Linkedin, Mail, Github, Star, Award, Users, Briefcase, ChevronDown, ExternalLink, FileText, Video, Image, MessageCircle } from 'lucide-react';
+import arizqaProfile from './assets/arizqa.jpeg';
 
 export default function ArizqaPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -229,7 +230,8 @@ export default function ArizqaPortfolio() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center space-y-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-2 gap-10 items-center animate-fade-in-up">
+            <div className="text-center md:text-left space-y-8 order-2 md:order-1">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-pink-500/20 to-rose-500/20 border border-pink-500/30 rounded-full text-pink-400 text-sm font-semibold mb-6 backdrop-blur-sm animate-slide-down">
               ✨ Kreator Konten & Digital Marketer
             </div>
@@ -242,43 +244,34 @@ export default function ArizqaPortfolio() {
               Ramadhani here
             </h2> */}
             
-            <p className="text-base sm:text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed break-words animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            <p className="text-base sm:text-lg md:text-2xl text-gray-400 max-w-3xl md:max-w-xl mx-auto md:mx-0 leading-relaxed break-words animate-fade-in-up" style={{animationDelay: '0.6s'}}>
               Arizqa is a versatile digital branding associate with language expertise. Novi has experience in content creation since 2022. She is currently certified as competent in Digital Marketing with copywriting skills. Leadership and skilled interpersonal communication make her dynamic toward the developments in the creative industry, education, and social fields.
             </p>
 
-            <div className="flex flex-col items-center sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
-              
-              <a href="#contact">
-                <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
-                  Download Cv
-                </button>
-              </a>
-              <a href="#portfolio">
-                <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
-                  Portfolio
-                  <ChevronDown className="ml-2 group-hover:translate-y-1 transition-transform" />
-                </button>
-              </a>
+              <div className="flex flex-col items-center md:items-start sm:flex-row gap-4 justify-center md:justify-start pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+                
+                <a href="#contact">
+                  <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
+                    Download Cv
+                  </button>
+                </a>
+                <a href="#portfolio">
+                  <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
+                    Portfolio
+                    <ChevronDown className="ml-2 group-hover:translate-y-1 transition-transform" />
+                  </button>
+                </a>
+              </div>
             </div>
-
-            {/* <div className="flex justify-center gap-6 pt-8 animate-fade-in-up" style={{animationDelay: '1s'}}>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-pink-500/30 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-600 hover:border-transparent transition-all duration-300 hover:scale-110 hover:rotate-12">
-                <Instagram size={20} />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-pink-500/30 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-600 hover:border-transparent transition-all duration-300 hover:scale-110 hover:rotate-12">
-                <Linkedin size={20} />
-              </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-pink-500/30 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-600 hover:border-transparent transition-all duration-300 hover:scale-110 hover:rotate-12">
-                <Github size={20} />
-              </a>
-              <a href="mailto:arizqa@example.com" className="w-12 h-12 bg-white/5 border border-pink-500/30 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-pink-600 hover:to-rose-600 hover:border-transparent transition-all duration-300 hover:scale-110 hover:rotate-12">
-                <Mail size={20} />
-              </a>
-            </div> */}
-          </div>
-
-          <div className="mt-20 flex justify-center">
-            <ChevronDown className="w-8 h-8 text-pink-500 animate-bounce-slow" />
+            <div className="mt-12 md:mt-0 flex justify-center md:justify-end order-1 md:order-2">
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-pink-500/60 shadow-2xl shadow-pink-500/30 bg-gradient-to-tr from-pink-500/20 to-rose-500/30">
+                <img
+                  src={arizqaProfile}
+                  alt="Arizqa Novi Ramadhani profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

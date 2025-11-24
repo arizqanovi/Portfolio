@@ -124,12 +124,12 @@ export default function ArizqaPortfolio() {
   ];
 
   const skills = [
-    { name: "Content Writing", level: 95 },
-    { name: "SEO Optimization", level: 90 },
-    { name: "Content Strategy", level: 88 },
-    { name: "Copywriting", level: 92 },
-    { name: "Social Media Marketing", level: 87 },
-    { name: "Content Editing", level: 93 }
+    "SEO Copywriting",
+    "Landing Page",
+    "Research Tools",
+    "Marketing Strategy",
+    "Google Workspace",
+    "Microsoft Suites"
   ];
 
   const filteredPortfolio = activeTab === 'all' 
@@ -159,7 +159,7 @@ export default function ArizqaPortfolio() {
             </div>
             
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
+              {['Home', 'About', 'Portfolio', 'Contact'].map((item) => (
                 <button
                   key={item}
                   type="button"
@@ -431,25 +431,53 @@ export default function ArizqaPortfolio() {
       <section id="skills" className="py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
-            <h3 className="text-3xl md:text-4xl font-bold text-pink-500 mb-8 text-center">Keahlian Saya</h3>
-            <div className="max-w-3xl mx-auto">
-              {skills.map((skill, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium">
-                    <span className="text-gray-300">{skill.name}</span>
-                    <span className="text-pink-500">{skill.level}%</span>
-                  </div>
-                  <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-pink-600 to-rose-600 rounded-full skill-bar-animate"
-                      style={{
-                        '--target-width': `${skill.level}%`,
-                        animationDelay: `${index * 0.1}s`
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
+            <h3 className="text-3xl md:text-4xl font-bold text-pink-500 mb-8 text-center">Skills</h3>
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-3">
+                {skills.map((name, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg border border-pink-500/20 hover:border-pink-500 transition-colors"
+                    style={{ animation: `fadeInScale 0.4s ease-out ${index * 0.1}s both` }}
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Course and Certifications */}
+      <section id="certifications" className="py-20 bg-gradient-to-b from-gray-900 to-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl border border-pink-500/20 bg-gradient-to-br from-gray-900/70 to-black/70 p-8 md:p-12 shadow-2xl">
+            <div className="pointer-events-none absolute -top-24 -left-24 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl"></div>
+            <div className="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 bg-rose-500/20 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10 text-center space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pink-500/30 bg-white/5 text-pink-300 text-sm font-semibold">
+                <Award className="w-4 h-4" />
+                Certificates
+              </div>
+
+              <h3 className="text-3xl md:text-4xl font-bold">
+                <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent">Course and Certifications</span>
+              </h3>
+
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Kumpulan sertifikat pelatihan dan kursus yang relevan dengan content writing, marketing, dan tools pendukung.
+              </p>
+
+              <div className="pt-2">
+                <a href="https://drive.google.com/drive/folders/1sYwTGHp2-njtcNhMiQ-Dxm667ErBk9iu?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  <button className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/40 transition-all duration-300 font-bold hover:scale-105 active:scale-95">
+                    View Folder
+                    <ExternalLink className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -464,7 +492,7 @@ export default function ArizqaPortfolio() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white animate-fade-in-up">
-            Mari Ciptakan Sesuatu yang Luar Biasa Bersama
+             Let's collab and create something impactful
           </h2>
           <p className="text-xl text-pink-100 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             Siap untuk mengembangkan konten yang menarik dan strategi pemasaran digital yang efektif? Mari diskusikan proyek Anda!
@@ -503,11 +531,11 @@ export default function ArizqaPortfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4">
             <div className="text-2xl font-bold">
-              <span className="text-white">Arizqa</span>
-              <span className="text-pink-500"> Novi Ramadhani</span>
+              <span className=" text-pink-500">Arizqa</span>
+              <span className="text-white"> Novi Ramadhani</span>
             </div>
             <p className="text-gray-400">
-              Content Writer | Editor | Digital Marketer
+              Language Practitioner | Digital Content Writer
             </p>
             <p className="text-gray-500 text-sm">
               © 2025 Arizqa Novi Ramadhani. Hak cipta dilindungi undang-undang.

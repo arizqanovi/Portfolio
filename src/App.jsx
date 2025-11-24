@@ -154,8 +154,8 @@ export default function ArizqaPortfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
             <div className="text-2xl font-bold">
-              <span className="text-white">Arizqa</span>
-              <span className="text-pink-500"> Novi</span>
+              <span className="text-pink-500">Arizqa</span>
+              <span className="text-white "> Novi Ramadhani</span>
             </div>
             
             <div className="hidden md:flex space-x-8">
@@ -243,7 +243,7 @@ export default function ArizqaPortfolio() {
               Arizqa is a versatile digital branding associate with language expertise. Novi has experience in content creation since 2022. She is currently certified as competent in Digital Marketing with copywriting skills. Leadership and skilled interpersonal communication make her dynamic toward the developments in the creative industry, education, and social fields.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+            <div className="flex flex-col items-center sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
               <a href="#portfolio">
                 <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
                   Portfolio
@@ -498,7 +498,7 @@ export default function ArizqaPortfolio() {
             Siap untuk mengembangkan konten yang menarik dan strategi pemasaran digital yang efektif? Mari diskusikan proyek Anda!
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+          <div className="flex flex-col items-center sm:flex-row gap-4 justify-center pt-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
             <a href="mailto:ramadhaninovi98@gmail.com">
               <button className="group px-10 py-5 bg-white text-pink-600 rounded-lg hover:bg-pink-50 transition-all duration-300 font-bold text-lg flex items-center justify-center shadow-2xl hover:scale-105 hover:-translate-y-1 active:scale-95">
                 Kirim Email

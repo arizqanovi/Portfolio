@@ -256,7 +256,7 @@ export default function ArizqaPortfolio() {
               <a href="#portfolio">
                 <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
                   Portfolio
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ChevronDown className="ml-2 group-hover:translate-y-1 transition-transform" />
                 </button>
               </a>
             </div>

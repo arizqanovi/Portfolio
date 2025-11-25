@@ -100,7 +100,7 @@ export default function ContentWriting() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               Artikel <span className="text-pink-500">Pilihan</span>
             </h2>
-            <p className="text-gray-400 mt-3">Beberapa artikel yang relevan dengan konten tulisan.</p>
+            {/* <p className="text-gray-400 mt-3">Beberapa artikel yang relevan dengan konten tulisan.</p> */}
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

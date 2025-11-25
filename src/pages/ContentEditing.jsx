@@ -102,7 +102,7 @@ export default function ContentEditing() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               Edited <span className="text-pink-500">Articles</span>
             </h2>
-            <p className="text-gray-400 mt-3">Beberapa artikel yang pernah dikerjakan dalam proses content editing.</p>
+            {/* <p className="text-gray-400 mt-3">Beberapa artikel yang pernah dikerjakan dalam proses content editing.</p> */}
           </div>
 
           <div className="space-y-4">

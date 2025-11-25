@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Pen, Edit3, TrendingUp, Instagram, Linkedin, Mail, Github, Star, Award, Users, Briefcase, ChevronDown, ExternalLink, FileText, Video, Image, MessageCircle } from 'lucide-react';
 import arizqaProfile from './assets/arizqa.jpeg';
+import cvArizqa from './assets/cvarizqa.pdf';
 
 export default function ArizqaPortfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,7 +79,7 @@ export default function ArizqaPortfolio() {
       description: "Produk review, recomendation, evergreen articles",
       // type: "Article",
       gradient: "from-pink-600 to-rose-600",
-      icon: <FileText className="w-12 h-12" />,
+      icon: <Pen className="w-12 h-12" />,
       link: "#/content-writing"
     },
     {
@@ -87,25 +88,20 @@ export default function ArizqaPortfolio() {
       description: "Report, Editorial, and Community Spotlight",
       // type: "Book",
       gradient: "from-fuchsia-600 to-pink-600",
-      icon: <Edit3 className="w-12 h-12" />,
+      icon: <FileText className="w-12 h-12" />,
       link: "#/news"
     },
-    {
-      category: "spoken",
-      title: "Language Tutor ",
-      description: "Indonesian and English language learning guide",
-      // type: "Campaign",
-      gradient: "from-rose-600 to-pink-700",
-      icon: <TrendingUp className="w-12 h-12" />,
-      link: "#/language-tutor"
-    },
+    
     {
       category: "written",
-      title: "Centent Editing",
+      title: "Copyediting",
       description: "Strategic SEO and keyword optimization",
       // type: "Strategy",
       gradient: "from-pink-500 to-fuchsia-500",
-      icon: <FileText className="w-12 h-12" />,
+      icon: (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75" />
+</svg>
+),
       link: "#/content-editing"
     },
     {
@@ -114,7 +110,31 @@ export default function ArizqaPortfolio() {
       description: "Grammar and linguistic refinement",
       // type: "Video",
       gradient: "from-rose-500 to-pink-600",
-      icon: <Video className="w-12 h-12" />
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="w-12 h-12"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+          />
+        </svg>
+      )
+    },
+    {
+      category: "spoken",
+      title: "Language Tutor ",
+      description: "Indonesian and English language learning guide",
+      // type: "Campaign",
+      gradient: "from-rose-600 to-pink-700",
+      icon: <MessageCircle className="w-12 h-12" />,
+      link: "#/language-tutor"
     },
     {
       category: "spoken",
@@ -122,7 +142,10 @@ export default function ArizqaPortfolio() {
       description: "Persuasive rhetoric communication",
       // type: "Planning",
       gradient: "from-fuchsia-600 to-rose-600",
-      icon: <Image className="w-12 h-12" />,
+      icon: (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+</svg>
+),
       link: "#/speaker-mc"
     }
   ];
@@ -163,7 +186,7 @@ export default function ArizqaPortfolio() {
             </div>
             
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Portfolio', 'Contact'].map((item) => (
+              {['Home', 'Portfolio', 'Contact'].map((item) => (
                 <button
                   key={item}
                   type="button"
@@ -198,7 +221,7 @@ export default function ArizqaPortfolio() {
         {isMenuOpen && (
           <div className="md:hidden bg-black/98 backdrop-blur-lg border-t border-pink-500/20">
             <div className="px-4 py-6 space-y-4">
-              {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
+              {['Home', 'Services', 'Portfolio', 'Contact'].map((item) => (
                 <button
                   key={item}
                   type="button"
@@ -244,23 +267,25 @@ export default function ArizqaPortfolio() {
               Ramadhani here
             </h2> */}
             
-            <p className="text-base sm:text-lg md:text-2xl text-gray-400 max-w-3xl md:max-w-xl mx-auto md:mx-0 leading-relaxed break-words animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-              Arizqa is a versatile digital branding associate with language expertise. Novi has experience in content creation since 2022. She is currently certified as competent in Digital Marketing with copywriting skills. Leadership and skilled interpersonal communication make her dynamic toward the developments in the creative industry, education, and social fields.
+            <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-3xl md:max-w-xl mx-auto md:mx-0 leading-relaxed break-words animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+              Arizqa is a seasoned digital content writer specializing in robust language expertise for impactful brand messaging. Certified competent since 2022, she excels in merging copywriting skills with strategic digital execution. Her dynamic approach, supported by strong interpersonal and leadership skills, drives success across the creative industry, education, and social fields.
             </p>
 
               <div className="flex flex-col items-center md:items-start sm:flex-row gap-4 justify-center md:justify-start pt-8 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
                 
-                <a href="#contact">
+                <a href={cvArizqa} target="_blank" rel="noopener noreferrer">
                   <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-pink-500 text-pink-500 rounded-lg hover:bg-pink-500/10 transition-all duration-300 font-bold text-lg hover:scale-105 active:scale-95">
-                    Download Cv
+                    Download CV
                   </button>
                 </a>
-                <a href="#portfolio">
-                  <button className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95">
-                    Portfolio
-                    <ChevronDown className="ml-2 group-hover:translate-y-1 transition-transform" />
-                  </button>
-                </a>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('portfolio')}
+                  className="group px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 font-bold text-lg flex items-center justify-center hover:scale-105 active:scale-95"
+                >
+                  Portfolio
+                  <ChevronDown className="ml-2 group-hover:translate-y-1 transition-transform" />
+                </button>
               </div>
             </div>
             <div className="mt-12 md:mt-0 flex justify-center md:justify-end order-1 md:order-2">
@@ -277,34 +302,6 @@ export default function ArizqaPortfolio() {
       </section>
 
       {/* Stats Section removed per request */}
-
-      {/* About Section */}
-      <section id="about" className="py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-16 items-center">
-            <div className="space-y-6 animate-slide-in-left">
-              <h2 className="text-4xl md:text-5xl font-bold">
-                About <span className="text-pink-500">Me</span>
-              </h2>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Saya adalah seorang content writer, editor, dan digital marketer yang passionate dalam menciptakan konten yang meaningful dan impactful. Dengan pengalaman bertahun-tahun di industri digital, saya telah membantu berbagai brand dan bisnis untuk mengembangkan presence online mereka.
-              </p>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Keahlian saya meliputi content creation, SEO optimization, copywriting, content strategy, dan social media marketing. Saya percaya bahwa konten yang baik tidak hanya informatif, tetapi juga mampu menginspirasi dan menggerakkan audiens.
-              </p>
-              {/* <div className="pt-6">
-                <a href="#contact">
-                  <button className="px-8 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white rounded-lg hover:shadow-xl hover:shadow-pink-500/50 transition-all duration-300 font-bold hover:scale-105 active:scale-95">
-                    Unduh CV
-                  </button>
-                </a>
-              </div> */}
-            </div>
-
-            {/* Keahlian Saya dipindahkan ke section baru tepat di atas Contact */}
-          </div>
-        </div>
-      </section>
 
       {/* Services Section */}
       {/* <section id="services" className="py-32 bg-black animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
@@ -481,15 +478,15 @@ export default function ArizqaPortfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-32 bg-gradient-to-br from-pink-600 via-rose-600 to-fuchsia-600 relative overflow-hidden animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
+      <section id="contact" className="py-10 md:py-16 bg-gradient-to-br from-pink-600 via-rose-600 to-fuchsia-600 relative overflow-hidden animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-float"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full filter blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white animate-fade-in-up">
-             Let's collab and create something impactful
+          <h2 className="text-1xl md:text-4xl font-bold text-white animate-fade-in-up">
+             Let's collab and create something impactful!
           </h2>
           {/* <p className="text-xl text-pink-100 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             Siap untuk mengembangkan konten yang menarik dan strategi pemasaran digital yang efektif? Mari diskusikan proyek Anda!
@@ -505,7 +502,7 @@ export default function ArizqaPortfolio() {
           </div>
 
           <div className="pt-6 text-pink-50 text-lg font-semibold animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-            Contact Me
+            Reach me:
           </div>
 
           <div className="flex justify-center gap-6 pt-4 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
@@ -522,7 +519,7 @@ export default function ArizqaPortfolio() {
                 <path d="M16 3C9.373 3 4 8.373 4 15c0 2.115.553 4.067 1.607 5.8L4 29l8.39-1.57C13.99 28.45 14.986 28.7 16 28.7 22.627 28.7 28 23.327 28 16.7 28 10.073 22.627 4.7 16 4.7zm0 2.6c5.01 0 9.1 4.09 9.1 9.1 0 5.01-4.09 9.1-9.1 9.1-.84 0-1.665-.12-2.455-.357l-.44-.13-4.96.93.95-4.84-.145-.25C8.36 20 7.9 18.38 7.9 16.7 7.9 9.99 11.99 5.6 16 5.6zm-4.03 4.4c-.22 0-.565.08-.86.4-.295.32-1.13 1.104-1.13 2.69 0 1.585 1.16 3.118 1.32 3.335.16.217 2.23 3.55 5.52 4.834 2.73 1.08 3.29.866 3.88.81.59-.056 1.91-.78 2.18-1.533.27-.753.27-1.398.19-1.533-.08-.135-.295-.215-.62-.377-.325-.162-1.92-.947-2.22-1.055-.295-.108-.51-.162-.72.163-.21.325-.825 1.055-1.01 1.27-.186.217-.37.244-.695.082-.325-.162-1.37-.505-2.61-1.61-.966-.86-1.62-1.92-1.81-2.245-.19-.325-.02-.5.143-.662.147-.147.325-.383.487-.575.162-.19.216-.325.325-.54.108-.216.054-.406-.027-.568-.08-.162-.72-1.77-.985-2.42-.24-.6-.49-.62-.71-.63z" />
               </svg>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
+            <a href="https://linkedin.com/in/arizqa-novi-ramadhani" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <Linkedin size={24} />
             </a>
             {/* <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">

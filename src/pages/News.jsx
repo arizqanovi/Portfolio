@@ -1168,7 +1168,7 @@ export default function News() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               Kumpulan <span className="text-pink-500">Berita</span>
             </h2>
-            <p className="text-gray-400 mt-3">Berita terkini seputar Jawa Timur dan nasional.</p>
+            <p className="text-gray-400 mt-3">Isu-isu aktual dan informatif.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

@@ -27,6 +27,62 @@ export default function ContentEditing() {
       title: 'Hidup di Solo Hati Tetap Tenang Meski Kampus Ramai dan Jalanan Macet',
       url: 'https://nyangkem.id/esai/hidup-di-solo-hati-tetap-tenang-meski-kampus-ramai-dan-jalanan-macet/',
     },
+    {
+      title: 'Usung Tema Postmodern, Teater Gapus Gelar Pentas Akhir Tahun',
+      url: 'https://persmercusuar.com/2023/12/23/usung-tema-postmodern-teater-gapus-gelar-pentas-akhir-tahun/',
+    },
+    {
+      title: 'Parkir Masjid Nuruzzaman Berbayar, Pantaskah?',
+      url: 'https://persmercusuar.com/2023/10/12/parkir-masjid-nuruzzaman-berbayar-pantaskah/',
+    },
+    {
+      title: 'Diikuti UI, UGM, PKN STAN, dan 97 Universitas, Serta Sekolah, HMA UNAIR Sukses Gelar AAC 2023',
+      url: 'https://persmercusuar.com/2023/09/29/diikuti-ui-ugm-pkn-stan-dan-97-universitas-serta-sekolah-hma-unair-sukses-gelar-aac-2023/',
+    },
+    {
+      title: 'Bisa Melukai Diri Sendiri, Inilah Sisi Gelap Terlalu Mandiri',
+      url: 'https://persmercusuar.com/2023/11/03/bisa-melukai-diri-sendiri-inilah-sisi-gelap-terlalu-mandiri/',
+    },
+    {
+      title: 'Diguyur Hujan Buatan, Kualitas Udara Jakarta Masih Begini-begini Saja',
+      url: 'https://persmercusuar.com/2023/09/04/diguyur-hujan-buatan-kualitas-udara-jakarta-masih-begini-begini-saja/',
+    },
+    {
+      title: 'Atasi Jukir Liar, Pemkot Surabaya Larang Warga Bayar Parkir Tanpa Karcis',
+      url: 'https://persmercusuar.com/2023/08/15/atasi-jukir-liar-pemkot-surabaya-larang-warga-bayar-parkir-tanpa-karcis/',
+    },
+    {
+      title: 'Imajinair Mengabdi, Kembangkan Potensi Daerah Asal',
+      url: 'https://persmercusuar.com/2023/07/27/imajinair-mengabdi-kembangkan-potensi-daerah-asal/',
+    },
+    {
+      title: 'Begini Kondisi Rumput di JIS yang Tuai Pro Kontra',
+      url: 'https://persmercusuar.com/2023/07/13/begini-kondisi-rumput-di-jis-yang-tuai-pro-kontra/',
+    },
+    {
+      title: 'Pengmas Internasional: Pengabdian Sekaligus Pengenalan Budaya Indonesia',
+      url: 'https://persmercusuar.com/2023/06/19/pengmas-internasional-pengabdian-sekaligus-pengenalan-budaya-indonesia/',
+    },
+    {
+      title: 'Kumpulan Liputan tentang AHY di Pers Mercusuar',
+      url: 'https://persmercusuar.com/?s=AHY',
+    },
+    {
+      title: 'Marak Terjadi di Korea, Bagaimana Praktik Misogini di Indonesia?',
+      url: 'https://persmercusuar.com/2023/04/30/marak-terjadi-di-korea-bagaimana-praktik-misogini-di-indonesia/',
+    },
+    {
+      title: 'Filantropi: Menggapai Kebahagiaan Jangka Pendek dan Jangka Panjang',
+      url: 'https://persmercusuar.com/2023/03/28/filantropi-menggapai-kebahagiaan-jangka-pendek-dan-jangka-panjang/',
+    },
+    {
+      title: 'Cantik Itu Luka, Karya Sastra Epik yang Wajib Dibaca',
+      url: 'https://persmercusuar.com/2023/03/28/cantik-itu-luka-karya-sastra-epik-yang-wajib-dibaca/',
+    },
+    {
+      title: 'Kumpulan Tulisan Lain (Google Drive Folder)',
+      url: 'https://drive.google.com/drive/mobile/folders/14tHSKSr452U9m5v6Xv8V5_KNVHuszrKw/1cbnSy0gkBkcyilElRYBKQSrgEt8sqL6D?fbclid=PAY2xjawHhtHdleHRuA2FlbQIxMQABptId2_N4HmqMKpVGVu0YdT_kLDDijh92awfLXzDZ9PlS03fZ6E_QS6C4OA_aem_9HjnD3hrf4AmiV4CChFANg&sort=13&direction=a',
+    },
   ];
 
   return (

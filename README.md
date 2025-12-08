@@ -1,3 +1,32 @@
+# Arizqa Novi Ramadhani - Portfolio Website
+
+Portfolio website untuk Arizqa Novi Ramadhani, seorang Digital Content Writer dan Language Practitioner.
+
+## 🔐 Admin Panel
+
+Website ini dilengkapi dengan admin panel yang terproteksi untuk mengelola artikel berita.
+
+### Akses Admin Panel
+
+- **Cara 1**: Klik floating button **"Kelola Artikel"** di pojok kanan bawah halaman News
+- **Cara 2**: Akses langsung via URL `#/admin-news` atau `#/login`
+- **Username**: `admin`
+- **Password**: `admin123`
+
+### Fitur
+
+- ✅ Tambah, edit, dan hapus artikel berita
+- ✅ Artikel yang ditambahkan **otomatis muncul di halaman News** (`#/news`) **paling atas**
+- ✅ Artikel dari admin ditampilkan lebih dulu daripada artikel statis
+- ✅ Protected dengan sistem autentikasi
+- ✅ Data tersimpan di localStorage browser
+
+⚠️ **Penting**: Ganti password default di `src/context/AuthContext.jsx` sebelum deploy ke production!
+
+Lihat [ADMIN_CREDENTIALS.md](./ADMIN_CREDENTIALS.md) untuk detail lengkap tentang sistem autentikasi dan [CARA_MENGGUNAKAN_ADMIN.md](./CARA_MENGGUNAKAN_ADMIN.md) untuk panduan penggunaan.
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

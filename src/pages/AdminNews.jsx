@@ -122,43 +122,43 @@ export default function AdminNews() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      <header className="py-6 border-b border-pink-500/20 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">Admin Berita</h1>
-          <div className="flex items-center gap-4">
-            <a href="#/" className="inline-flex items-center text-pink-500 hover:text-pink-400 font-semibold">
-              <ArrowLeft className="mr-2 w-4 h-4" /> Kembali ke Beranda
+      <header className="py-4 sm:py-6 border-b border-pink-500/20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold">Admin Berita</h1>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 w-full sm:w-auto">
+            <a href="#/" className="inline-flex items-center text-pink-500 hover:text-pink-400 font-semibold text-sm sm:text-base">
+              <ArrowLeft className="mr-1 w-4 h-4 sm:mr-2 sm:w-4 sm:h-4" /> Kembali ke Beranda
             </a>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold transition-colors"
+              className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold text-sm sm:text-base transition-colors"
             >
-              <LogOut className="mr-2 w-4 h-4" /> Logout
+              <LogOut className="mr-1 w-4 h-4 sm:mr-2 sm:w-4 sm:h-4" /> Logout
             </button>
           </div>
         </div>
       </header>
 
-      <main className="py-12 md:py-16">
+      <main className="py-8 sm:py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
               Kelola <span className="text-pink-500">Berita</span>
             </h2>
-            <p className="text-gray-400 mt-3">Tambah, edit, atau hapus artikel berita</p>
-            <div className="mt-4 p-4 bg-blue-900/30 rounded-lg border border-blue-500/30 max-w-2xl mx-auto">
-              <p className="text-blue-300 text-sm">
+            <p className="text-gray-400 mt-2 sm:mt-3 text-sm sm:text-base">Tambah, edit, atau hapus artikel berita</p>
+            <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-blue-900/30 rounded-lg border border-blue-500/30 max-w-2xl mx-auto">
+              <p className="text-blue-300 text-xs sm:text-sm">
                 <strong>Info:</strong> Artikel yang sudah ada tidak akan dihapus saat menambahkan artikel baru.
                 Semua artikel yang telah Anda buat sebelumnya akan tetap dipertahankan.
               </p>
-              <p className="text-blue-300 text-sm mt-2">
+              <p className="text-blue-300 text-xs sm:text-sm mt-2">
                 Untuk informasi lebih lanjut, lihat <a href="./ARTICLE_MANAGEMENT.md" target="_blank" className="text-pink-400 hover:underline">dokumentasi sistem</a>.
               </p>
             </div>
           </div>
 
           {/* Form untuk tambah/edit artikel */}
-          <div className="bg-gray-900 rounded-2xl p-6 mb-12 border border-pink-500/20">
+          <div className="bg-gray-900 rounded-2xl p-4 sm:p-6 mb-8 sm:mb-12 border border-pink-500/20">
             <h3 className="text-xl font-bold mb-4">
               {editingId ? 'Edit Artikel' : 'Tambah Artikel Baru'}
             </h3>
@@ -171,7 +171,7 @@ export default function AdminNews() {
                   name="title"
                   value={formData.title}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -183,7 +183,7 @@ export default function AdminNews() {
                   name="source"
                   value={formData.source}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -195,7 +195,7 @@ export default function AdminNews() {
                   name="url"
                   value={formData.url}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -207,15 +207,15 @@ export default function AdminNews() {
                   value={formData.description}
                   onChange={handleInputChange}
                   rows={3}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm sm:text-base"
                   required
                 />
               </div>
               
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-wrap gap-2 pt-2">
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-pink-600 hover:bg-pink-700 rounded-lg font-semibold transition-colors"
+                  className="px-4 py-2 sm:px-6 sm:py-2 bg-pink-600 hover:bg-pink-700 rounded-lg font-semibold transition-colors text-sm sm:text-base"
                 >
                   {editingId ? 'Update Artikel' : 'Tambah Artikel'}
                 </button>
@@ -224,7 +224,7 @@ export default function AdminNews() {
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg font-semibold transition-colors"
+                    className="px-4 py-2 sm:px-6 sm:py-2 bg-gray-600 hover:bg-gray-700 rounded-lg font-semibold transition-colors text-sm sm:text-base"
                   >
                     Batal
                   </button>
@@ -243,20 +243,20 @@ export default function AdminNews() {
             ) : (
               <div className="grid gap-4">
                 {[...articles].reverse().map((article) => (
-                  <div key={article.id} className="bg-gray-900 rounded-2xl p-6 border border-pink-500/20">
+                  <div key={article.id} className="bg-gray-900 rounded-2xl p-4 sm:p-6 border border-pink-500/20">
                     <h4 className="text-lg font-bold mb-2">{article.title}</h4>
                     <p className="text-pink-500 text-sm mb-2">{article.source}</p>
                     <p className="text-gray-400 text-sm mb-4 line-clamp-2">{article.description}</p>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
                       <button
                         onClick={() => handleEdit(article)}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-semibold transition-colors"
+                        className="px-3 py-2 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-xs sm:text-sm font-semibold transition-colors"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDelete(article.id)}
-                        className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-sm font-semibold transition-colors"
+                        className="px-3 py-2 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 rounded-lg text-xs sm:text-sm font-semibold transition-colors"
                       >
                         Hapus
                       </button>
@@ -264,7 +264,7 @@ export default function AdminNews() {
                         href={article.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm font-semibold transition-colors"
+                        className="px-3 py-2 sm:px-4 sm:py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-xs sm:text-sm font-semibold transition-colors"
                       >
                         Buka Link
                       </a>

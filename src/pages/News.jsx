@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, ArrowLeft } from 'lucide-react';
+import { ExternalLink, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
+
 
 export default function News() {
   const [allNews, setAllNews] = useState([]);
@@ -1189,55 +1190,59 @@ export default function News() {
             {/* <p className="text-gray-400 mt-3">Isu-isu aktual dan informatif.</p> */}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {paginatedNews.map((news, index) => (
-              <div key={index} className="group bg-gradient-to-br from-gray-900 to-black border border-pink-500/20 rounded-2xl overflow-hidden hover:border-pink-500 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-500 hover:-translate-y-2">
-                <div className="p-6 space-y-3">
-                  <div className="text-sm text-pink-500 font-semibold">{news.source}</div>
-                  <h3 className="text-lg sm:text-xl font-bold group-hover:text-pink-500 transition-colors duration-300 break-words">{news.title}</h3>
-                  <p className="text-gray-400 break-words">{news.description}</p>
-                  <a
-                    href={news.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pink-500 font-semibold inline-flex items-center group-hover:gap-2 transition-all pt-2"
-                  >
-                    Baca selengkapnya <ExternalLink className="ml-1 w-4 h-4 group-hover:rotate-12 transition-transform" />
-                  </a>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {paginatedNews.map((news) => (
+              <div key={news.id} className="bg-gray-900 rounded-2xl p-4 sm:p-6 border border-pink-500/20 group hover:border-pink-500/40 transition-all">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <span className="inline-block px-2 py-1 bg-pink-500/10 text-pink-400 text-xs rounded-full border border-pink-500/30">
+                    {news.source}
+                  </span>
+                  <span className="text-gray-500 text-xs">
+                    {news.date}
+                  </span>
                 </div>
+                
+                <h3 className="text-lg sm:text-xl font-bold mb-3 line-clamp-2 group-hover:text-pink-400 transition-colors">
+                  {news.title}
+                </h3>
+                
+                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                  {news.description}
+                </p>
+                
+                <a
+                  href={news.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-500 font-semibold inline-flex items-center group-hover:gap-2 transition-all text-sm"
+                >
+                  Baca selengkapnya <ExternalLink className="ml-1 w-4 h-4 group-hover:rotate-12 transition-transform" />
+                </a>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2">
+          <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-1 sm:gap-2">
               <button
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage <= 1}
-                className={`px-3 py-2 rounded border ${currentPage <= 1 ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
+                className={`px-2 py-1 sm:px-3 sm:py-2 rounded border text-xs sm:text-sm ${currentPage <= 1 ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
               >
-                Previous
+                <ArrowLeft className="w-4 h-4" />
               </button>
-              <div className="flex items-center gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => goToPage(p)}
-                    className={`px-3 py-2 rounded border ${p === currentPage ? 'border-pink-500 bg-pink-500/10 text-white' : 'border-pink-500/30 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
-                  >
-                    {p}
-                  </button>
-                ))}
-              </div>
+              <span className="text-gray-400">
+                Halaman {currentPage} dari {totalPages}
+              </span>
               <button
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage >= totalPages}
-                className={`px-3 py-2 rounded border ${currentPage >= totalPages ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
+                className={`px-2 py-1 sm:px-3 sm:py-2 rounded border text-xs sm:text-sm ${currentPage >= totalPages ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
               >
-                Next
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-xs sm:text-sm">
               Halaman {currentPage} dari {totalPages} • Menampilkan {paginatedNews.length} dari {filteredNews.length} artikel
             </div>
           </div>
@@ -1247,22 +1252,22 @@ export default function News() {
       {/* Floating Action Button untuk Admin */}
       <a
         href="#/admin-news"
-        className="fixed bottom-8 right-8 group"
+        className="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 group z-10"
         title="Kelola Artikel (Admin)"
       >
         <div className="relative">
           {/* Glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300 scale-90 sm:scale-100"></div>
           
           {/* Button */}
-          <div className="relative flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110">
+          <div className="relative flex items-center gap-2 sm:gap-3 px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 scale-90 sm:scale-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
             >
               <path
                 strokeLinecap="round"
@@ -1277,3 +1282,4 @@ export default function News() {
     </div>
   );
 }
+

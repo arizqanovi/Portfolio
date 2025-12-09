@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 
 export default function News() {
-  // Daftar berita dengan title, source, dan description
+  const [allNews, setAllNews] = useState([]);
 
-  const newsData = [
+  // Data berita statis
+  const staticNewsData = [
     {
       title: "Pertamina Wajibkan Barcode untuk Pembelian Pertalite dan Solar, Begini Cara Mendaftarnya",
       source: "Suara Merdeka",
@@ -1120,13 +1121,30 @@ export default function News() {
     }
   ];
 
+  // Load artikel dari localStorage dan gabungkan dengan data statis
+  useEffect(() => {
+    const savedArticles = localStorage.getItem('newsArticles');
+    let dynamicArticles = [];
+    
+    if (savedArticles) {
+      try {
+        dynamicArticles = JSON.parse(savedArticles);
+      } catch (error) {
+        console.error('Error parsing saved articles:', error);
+      }
+    }
+    
+    // Gabungkan artikel dari admin (terbaru di atas) dengan artikel statis
+    setAllNews([...dynamicArticles.reverse(), ...staticNewsData]);
+  }, []);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const category = searchParams.get('category');
 
   // Filter berita berdasarkan kategori jika ada
   const filteredNews = category 
-    ? newsData.filter(news => news.source === category)
-    : newsData;
+    ? allNews.filter(news => news.source === category)
+    : allNews;
 
   // Pagination: 20 items per page using `page` query parameter
   const pageSize = 20;
@@ -1225,6 +1243,37 @@ export default function News() {
           </div>
         </div>
       </main>
+
+      {/* Floating Action Button untuk Admin */}
+      <a
+        href="#/admin-news"
+        className="fixed bottom-8 right-8 group"
+        title="Kelola Artikel (Admin)"
+      >
+        <div className="relative">
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          {/* Button */}
+          <div className="relative flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+            <span className="font-bold text-white hidden sm:inline">Kelola Artikel</span>
+          </div>
+        </div>
+      </a>
     </div>
   );
 }

@@ -280,7 +280,7 @@ export default function ArizqaPortfolio() {
           <div className="grid md:grid-cols-2 gap-10 items-center animate-fade-in-up">
             <div className="text-center md:text-left space-y-8 order-2 md:order-1">
             <div className="inline-block px-6 py-2 bg-gradient-to-r from-pink-500/20 to-rose-500/20 border border-pink-500/30 rounded-full text-pink-400 text-sm font-semibold mb-6 backdrop-blur-sm animate-slide-down">
-              ✨ Kreator Konten & Digital Marketer
+              ✨ Content Writer | Linguistic Scholar
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up" style={{animationDelay: '0.2s'}}>

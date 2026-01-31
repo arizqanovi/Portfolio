@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, ArrowLeft, ArrowRight } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { ExternalLink, ArrowLeft, ArrowRight, Newspaper, Hash, Trash2 } from 'lucide-react';
+import { useSearchParams, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 
 export default function News() {
+  const { isAuthenticated } = useAuth();
   const [allNews, setAllNews] = useState([]);
+  const [sources, setSources] = useState([]);
 
   // Data berita statis
   const staticNewsData = [
@@ -1126,7 +1129,7 @@ export default function News() {
   useEffect(() => {
     const savedArticles = localStorage.getItem('newsArticles');
     let dynamicArticles = [];
-    
+
     if (savedArticles) {
       try {
         dynamicArticles = JSON.parse(savedArticles);
@@ -1134,18 +1137,68 @@ export default function News() {
         console.error('Error parsing saved articles:', error);
       }
     }
-    
+
     // Gabungkan artikel dari admin (terbaru di atas) dengan artikel statis
     setAllNews([...dynamicArticles.reverse(), ...staticNewsData]);
+
+    // Load Sources
+    const savedSources = localStorage.getItem('newsSources');
+    if (savedSources) {
+      setSources(JSON.parse(savedSources));
+    } else {
+      // Default source if none exists
+      setSources(["Suara Merdeka"]);
+    }
   }, []);
+
+  const handleDeleteArticle = (articleToDelete) => {
+    if (window.confirm('Hapus artikel ini?')) {
+      // Perbarui state local
+      setAllNews(prev => prev.filter(article =>
+        (article.id && article.id !== articleToDelete.id) ||
+        (!article.id && article.url !== articleToDelete.url)
+      ));
+
+      // Jika artikel dari admin (ada di localStorage), hapus juga dari sana
+      const savedArticles = localStorage.getItem('newsArticles');
+      if (savedArticles) {
+        const dynamicArticles = JSON.parse(savedArticles);
+        const updatedArticles = dynamicArticles.filter(article => article.id !== articleToDelete.id);
+        localStorage.setItem('newsArticles', JSON.stringify(updatedArticles));
+      }
+    }
+  };
 
   const [searchParams, setSearchParams] = useSearchParams();
   const category = searchParams.get('category');
 
+  // Group news by source and include all defined sources
+  const groupedSources = sources.reduce((acc, sourceName) => {
+    acc[sourceName] = {
+      name: sourceName,
+      count: 0,
+    };
+    return acc;
+  }, {});
+
+  // Add news counts to grouped sources
+  allNews.forEach(news => {
+    const source = news.source || 'Lainnya';
+    if (!groupedSources[source]) {
+      groupedSources[source] = {
+        name: source,
+        count: 0
+      };
+    }
+    groupedSources[source].count += 1;
+  });
+
+  const sourceList = Object.values(groupedSources).filter(source => source.count > 0);
+
   // Filter berita berdasarkan kategori jika ada
-  const filteredNews = category 
+  const filteredNews = category
     ? allNews.filter(news => news.source === category)
-    : allNews;
+    : []; // If no category, we show source cards instead
 
   // Pagination: 20 items per page using `page` query parameter
   const pageSize = 20;
@@ -1174,10 +1227,20 @@ export default function News() {
     <div className="bg-black text-white min-h-screen">
       <header className="py-6 border-b border-pink-500/20 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-bold">Berita Terkini</h1>
-          <a href="#/" className="inline-flex items-center text-pink-500 hover:text-pink-400 font-semibold">
-            <ArrowLeft className="mr-2 w-4 h-4" /> Kembali ke Beranda
-          </a>
+          <h1 className="text-2xl md:text-3xl font-bold">News Room</h1>
+          <div className="flex items-center gap-4">
+            {category && (
+              <button
+                onClick={() => setSearchParams({})}
+                className="hidden md:inline-flex items-center text-pink-500 hover:text-pink-400 font-semibold"
+              >
+                <Hash className="mr-2 w-4 h-4" /> Semua Sumber
+              </button>
+            )}
+            <a href="#/" className="inline-flex items-center text-pink-500 hover:text-pink-400 font-semibold">
+              <ArrowLeft className="mr-2 w-4 h-4" /> Kembali ke Beranda
+            </a>
+          </div>
         </div>
       </header>
 
@@ -1185,67 +1248,132 @@ export default function News() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              Kumpulan <span className="text-pink-500">Berita</span>
+              {category ? (
+                <>Berita dari <span className="text-pink-500">{category}</span></>
+              ) : (
+                <>Kumpulan <span className="text-pink-500">Berita</span></>
+              )}
             </h2>
-            {/* <p className="text-gray-400 mt-3">Isu-isu aktual dan informatif.</p> */}
+            {category && (
+              <button
+                onClick={() => setSearchParams({})}
+                className="mt-4 inline-flex items-center text-gray-400 hover:text-pink-500 transition-colors"
+              >
+                <ArrowLeft className="mr-2 w-4 h-4" /> Kembali ke Daftar Sumber
+              </button>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {paginatedNews.map((news) => (
-              <div key={news.id} className="bg-gray-900 rounded-2xl p-4 sm:p-6 border border-pink-500/20 group hover:border-pink-500/40 transition-all">
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <span className="inline-block px-2 py-1 bg-pink-500/10 text-pink-400 text-xs rounded-full border border-pink-500/30">
-                    {news.source}
-                  </span>
-                  <span className="text-gray-500 text-xs">
-                    {news.date}
-                  </span>
-                </div>
-                
-                <h3 className="text-lg sm:text-xl font-bold mb-3 line-clamp-2 group-hover:text-pink-400 transition-colors">
-                  {news.title}
-                </h3>
-                
-                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                  {news.description}
-                </p>
-                
-                <a
-                  href={news.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-pink-500 font-semibold inline-flex items-center group-hover:gap-2 transition-all text-sm"
+          {!category ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {sourceList.map((source) => (
+                <div
+                  key={source.name}
+                  onClick={() => setSearchParams({ category: source.name })}
+                  className="bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-pink-500/10 group hover:border-pink-500/40 transition-all cursor-pointer relative overflow-hidden"
                 >
-                  Baca selengkapnya <ExternalLink className="ml-1 w-4 h-4 group-hover:rotate-12 transition-transform" />
-                </a>
-              </div>
-            ))}
-          </div>
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Newspaper size={80} className="text-pink-500" />
+                  </div>
 
-          <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-1 sm:gap-2">
-              <button
-                onClick={() => goToPage(currentPage - 1)}
-                disabled={currentPage <= 1}
-                className={`px-2 py-1 sm:px-3 sm:py-2 rounded border text-xs sm:text-sm ${currentPage <= 1 ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-              <span className="text-gray-400">
-                Halaman {currentPage} dari {totalPages}
-              </span>
-              <button
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={currentPage >= totalPages}
-                className={`px-2 py-1 sm:px-3 sm:py-2 rounded border text-xs sm:text-sm ${currentPage >= totalPages ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
-              >
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-pink-500/10 rounded-2xl flex items-center justify-center mb-6 border border-pink-500/20 group-hover:scale-110 transition-transform">
+                      <Newspaper className="text-pink-500 w-7 h-7" />
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-pink-400 transition-colors">
+                      {source.name}
+                    </h3>
+
+                    <p className="text-gray-400 mb-6 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                      {source.count} Artikel Tersedia
+                    </p>
+
+                    <div className="pt-6 border-t border-gray-800 flex items-center justify-between">
+                      <span className="text-sm font-medium text-pink-500">Lihat Berita</span>
+                      <div className="w-8 h-8 rounded-full border border-pink-500/30 flex items-center justify-center group-hover:bg-pink-500 group-hover:border-pink-500 transition-all">
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="text-gray-400 text-xs sm:text-sm">
-              Halaman {currentPage} dari {totalPages} • Menampilkan {paginatedNews.length} dari {filteredNews.length} artikel
-            </div>
-          </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {paginatedNews.map((news) => (
+                  <div key={news.id || news.url} className="bg-gray-900 rounded-2xl p-4 sm:p-6 border border-pink-500/20 group hover:border-pink-500/40 transition-all">
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <span className="inline-block px-2 py-1 bg-pink-500/10 text-pink-400 text-xs rounded-full border border-pink-500/30">
+                        {news.source}
+                      </span>
+                      <span className="text-gray-500 text-xs">
+                        {news.date}
+                      </span>
+                      {isAuthenticated && (
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleDeleteArticle(news);
+                          }}
+                          className="p-1.5 text-gray-500 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all"
+                          title="Hapus Artikel (Admin)"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      )}
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold mb-3 line-clamp-2 group-hover:text-pink-400 transition-colors">
+                      {news.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                      {news.description}
+                    </p>
+
+                    <a
+                      href={news.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-pink-500 font-semibold inline-flex items-center group-hover:gap-2 transition-all text-sm"
+                    >
+                      Baca selengkapnya <ExternalLink className="ml-1 w-4 h-4 group-hover:rotate-12 transition-transform" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              {totalPages > 1 && (
+                <div className="mt-8 sm:mt-10 flex flex-col items-center gap-3 sm:gap-4">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <button
+                      onClick={() => goToPage(currentPage - 1)}
+                      disabled={currentPage <= 1}
+                      className={`px-2 py-1 sm:px-3 sm:py-2 rounded border text-xs sm:text-sm ${currentPage <= 1 ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                    </button>
+                    <span className="text-gray-400">
+                      Halaman {currentPage} dari {totalPages}
+                    </span>
+                    <button
+                      onClick={() => goToPage(currentPage + 1)}
+                      disabled={currentPage >= totalPages}
+                      className={`px-2 py-1 sm:px-3 sm:py-2 rounded border text-xs sm:text-sm ${currentPage >= totalPages ? 'border-gray-700 text-gray-500' : 'border-pink-500/40 text-pink-400 hover:border-pink-500 hover:text-pink-300'}`}
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="text-gray-400 text-xs sm:text-sm">
+                    Halaman {currentPage} dari {totalPages} • Menampilkan {paginatedNews.length} dari {filteredNews.length} artikel
+                  </div>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </main>
 
@@ -1258,7 +1386,7 @@ export default function News() {
         <div className="relative">
           {/* Glow effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-300 scale-90 sm:scale-100"></div>
-          
+
           {/* Button */}
           <div className="relative flex items-center gap-2 sm:gap-3 px-4 py-3 sm:px-6 sm:py-4 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 scale-90 sm:scale-100">
             <svg

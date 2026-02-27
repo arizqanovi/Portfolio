@@ -1,6 +1,6 @@
 # Arizqa Novi Ramadhani - Portfolio Website
 
-Portfolio website untuk Arizqa Novi Ramadhani, seorang Digital Content Writer dan Language Practitioner.
+Portfolio website untuk Arizqa Novi Ramadhani, seorang Digital Content Writer dan Language Practitioner. link portfolio https://arizqanovi.github.io/Portfolio/
 
 ## 🔐 Admin Panel
 
@@ -11,7 +11,7 @@ Website ini dilengkapi dengan admin panel yang terproteksi untuk mengelola artik
 - **Cara 1**: Klik floating button **"Kelola Artikel"** di pojok kanan bawah halaman News
 - **Cara 2**: Akses langsung via URL `#/admin-news` atau `#/login`
 - **Username**: `admin`
-- **Password**: `admin123`
+- **Password**: `*****`
 
 ### Fitur
 
